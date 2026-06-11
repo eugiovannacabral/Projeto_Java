@@ -1,6 +1,6 @@
-package Filme;
+package br.inatel.cineinatel.model.filme;
 
-public abstract class filme {
+public abstract class Filme {
     protected String titulo;
     protected int duracao;
     protected String classificacao;

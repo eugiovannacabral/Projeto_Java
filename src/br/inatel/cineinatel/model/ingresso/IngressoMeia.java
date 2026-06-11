@@ -1,8 +1,7 @@
-package Ingresso;
+package br.inatel.cineinatel.model.ingresso;
+import br.inatel.cineinatel.model.sessao.Sessao;
 
-import Sessao.sessao;
-
-public class ingressoMeia extends ingresso {
+public class IngressoMeia extends Ingresso {
     public IngressoMeia(Sessao sessao, double valorBase) {
         super(sessao, valorBase);
     }
