@@ -1,6 +1,6 @@
-package Filme;
+package br.inatel.cineinatel.model.filme;
 
-public class filme3D extends filme {
+public class Filme3D extends Filme {
     public Filme3D(String titulo, int duracao, String classificacao) {
         super(titulo, duracao, classificacao);
     }

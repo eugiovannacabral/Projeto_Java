@@ -1,8 +1,7 @@
-package Ingresso;
+package br.inatel.cineinatel.model.ingresso;
+import br.inatel.cineinatel.model.sessao.Sessao;
 
-import Sessao.sessao;
-
-public abstract class ingresso {
+public abstract class Ingresso {
     protected Sessao sessao;
     protected double valorBase;
 

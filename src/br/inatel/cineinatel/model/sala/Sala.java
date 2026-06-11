@@ -1,10 +1,10 @@
-package Sala;
+package br.inatel.cineinatel.model.sala;
 
-public class sala {
+public class Sala {
     private int numero;
     private int capacidade;
 
-    public sala(int numero, int capacidade) {
+    public Sala(int numero, int capacidade) {
         this.numero = numero;
         this.capacidade = capacidade;
     }

@@ -1,11 +1,13 @@
-package Sessao;
+package br.inatel.cineinatel.model.sessao;
+import br.inatel.cineinatel.model.filme.Filme;
+import br.inatel.cineinatel.model.sala.Sala;
 
-public class sessao {
-    private filme filme;
-    private sala sala;
+public class Sessao {
+    private Filme filme;
+    private Sala sala;
     private String horario;
 
-    public sessao(filme filme, sala sala, String horario) {
+    public Sessao(Filme filme, Sala sala, String horario) {
         this.filme = filme;
         this.sala = sala;
         this.horario = horario;
