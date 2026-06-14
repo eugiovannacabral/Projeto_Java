@@ -12,4 +12,8 @@ public class Sala {
     public int getNumero() {
         return numero;
     }
+
+    public int getCapacidade() {
+        return capacidade;
+    }
 }

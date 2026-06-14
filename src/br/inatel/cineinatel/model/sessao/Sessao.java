@@ -15,6 +15,19 @@ public class Sessao {
 
     public void exibirSessao() {
         System.out.println("Filme: " + filme.getTitulo());
+        System.out.println("Sala: " + sala.getNumero());
         System.out.println("Horário: " + horario);
+    }
+
+    public Filme getFilme() {
+        return filme;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public String getHorario() {
+        return horario;
     }
 }
