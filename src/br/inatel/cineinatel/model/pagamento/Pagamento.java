@@ -1,4 +1,5 @@
 package br.inatel.cineinatel.model.pagamento;
 
-public class Pagamento {
+public abstract class Pagamento {
+    public abstract void realizarPagamento(double valor);
 }

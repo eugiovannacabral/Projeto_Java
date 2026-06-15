@@ -11,9 +11,21 @@ public abstract class Filme {
         this.classificacao = classificacao;
     }
 
-    public abstract double calcularValorAdicional();
+    public void exibirInformacoes() {
+        System.out.println("Filme: " + titulo);
+        System.out.println("Duração: " + duracao + " min");
+        System.out.println("Classificação: " + classificacao);
+    }
 
     public String getTitulo() {
         return titulo;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public String getClassificacao() {
+        return classificacao;
     }
 }

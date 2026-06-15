@@ -3,12 +3,10 @@ import br.inatel.cineinatel.model.sessao.Sessao;
 
 public abstract class Ingresso {
     protected Sessao sessao;
-    protected double valorBase;
 
-    public Ingresso(Sessao sessao, double valorBase) {
+    public Ingresso(Sessao sessao) {
         this.sessao = sessao;
-        this.valorBase = valorBase;
     }
 
-    public abstract double calcularValor();
+    public abstract double calcularPreco();
 }

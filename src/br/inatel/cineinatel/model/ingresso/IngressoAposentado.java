@@ -2,12 +2,12 @@ package br.inatel.cineinatel.model.ingresso;
 import br.inatel.cineinatel.model.sessao.Sessao;
 
 public class IngressoAposentado extends Ingresso {
-    public IngressoAposentado(Sessao sessao, double valorBase) {
-        super(sessao, valorBase);
+    public IngressoAposentado(Sessao sessao) {
+        super(sessao);
     }
 
     @Override
-    public double calcularValor() {
-        return valorBase * 0.7;
+    public double calcularPreco() {
+        return 20.0;
     }
 }
