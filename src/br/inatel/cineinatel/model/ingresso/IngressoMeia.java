@@ -3,12 +3,11 @@ import br.inatel.cineinatel.model.sessao.Sessao;
 
 public class IngressoMeia extends Ingresso {
 
-    public IngressoMeia(Sessao sessao) {
-        super(sessao);
+    public IngressoMeia(Sessao sessao, int linha, int coluna){
+        super(sessao, linha, coluna);
     }
 
     @Override
-    public double calcularPreco() {
-        return 15.0;
+    public double calcularPreco(){
+        return precoBase * 0.5;
     }
-}

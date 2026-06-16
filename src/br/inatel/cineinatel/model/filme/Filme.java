@@ -4,6 +4,8 @@ public abstract class Filme {
     protected String titulo;
     protected int duracao;
     protected String classificacao;
+    protected String genero;
+    protected int anoLancamento;
 
     public Filme(String titulo, int duracao, String classificacao) {
         this.titulo = titulo;
