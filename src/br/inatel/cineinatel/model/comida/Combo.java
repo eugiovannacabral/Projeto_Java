@@ -1,20 +1,22 @@
 package br.inatel.cineinatel.model.comida;
 
-public class Combo {
-    private String nome;
-    private double preco;
+public abstract class Combo {
+    protected String nome;
+    protected int quantidadeLanches;
+    protected int quantidadeBatatas;
+    protected int quantidadeRefrigerantes;
+    protected int quantidadeChocolates;
 
-    public Combo(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
+    private static final double PRECO_LANCHE = 15.0;// valores fixos, teremos combos fixos
+    private static final double PRECO_BATATA = 8.0;
+    private static final double PRECO_REFRIGERANTE = 7.0;
+    private static final double PRECO_CHOCOLATE = 4.0;
 
-    public void exibirCombo() {
-        System.out.println(nome + " - R$ " + preco);
-    }
-
-    public double getPreco() {
-        return preco;
+    public double calcularPreco(){
+        return quantidadeLanches * PRECO_LANCHE
+            + quantidadeBatatas * PRECO_BATATA
+            + quantidadeRefrigerantes * PRECO_REFRIGERANTE
+            + quantidadeChocolates * PRECO_CHOCOLATE;
     }
 
     public String getNome() {

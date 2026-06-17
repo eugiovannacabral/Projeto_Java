@@ -2,10 +2,12 @@ package br.inatel.cineinatel.model.ingresso;
 import br.inatel.cineinatel.model.sessao.Sessao;
 
 public abstract class Ingresso {
-    protected Sessao sessao;
-    protected  double precoBase = 40;
-    protected int linha;
-    protected int coluna;
+    private Sessao sessao;
+    private int linha;
+    private int coluna;
+    protected  double precoBase = 30;
+    private boolean desejaCobertor;
+    private boolean desejaReclinarPoltrona;
 
     public Ingresso(Sessao sessao, int linha, int coluna){
         this.sessao = sessao;
@@ -20,4 +22,8 @@ public abstract class Ingresso {
     }
 
     public abstract double calcularPreco();
+
+    public double calcularPrecoFinal() {
+        return 0;
+    }
 }

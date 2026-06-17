@@ -2,12 +2,11 @@ package br.inatel.cineinatel.model.sala;
 
 public class Sala {
     private int nSala;
-    private int linha;
-    private int coluna;
-    private boolean[][] assentos = new boolean[20][20];
+    private boolean[][] assentos;
 
     public Sala(int nSala){
         this.nSala = nSala; // numero da sala
+        assentos = new boolean[15][15];// definindo o tamanho da sala
     }
 
     public boolean comprarAssento(int linha, int coluna){
@@ -27,7 +26,6 @@ public class Sala {
 
     public void mostrarAssentos(){
         System.out.println("\n===== SALAS =====");
-        System.out.println("Assentos disponiveis.");
         for(int i = 0; i < assentos.length; i++){
             for(int j = 0; j < assentos[i].length; j++){
                 if(assentos[i][j])
@@ -41,19 +39,5 @@ public class Sala {
     public int getnSala(){
         return nSala;
     }
-    public int getColuna() {
-        return coluna;
-    }
 
-    public void setColuna(int coluna) {
-        this.coluna = coluna;
-    }
-
-    public int getLinha() {
-        return linha;
-    }
-
-    public void setLinha(int linha) {
-        this.linha = linha;
-    }
 }

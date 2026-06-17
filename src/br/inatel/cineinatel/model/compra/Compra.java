@@ -1,81 +1,62 @@
 package br.inatel.cineinatel.model.compra;
 import br.inatel.cineinatel.model.comida.Combo;
-import br.inatel.cineinatel.model.filme.Filme;
 import br.inatel.cineinatel.model.ingresso.Ingresso;
 import br.inatel.cineinatel.model.pagamento.Pagamento;
 import br.inatel.cineinatel.model.pessoa.Cliente;
-import br.inatel.cineinatel.model.sala.Sala;
-import br.inatel.cineinatel.model.sessao.Sessao;
 
 import java.util.ArrayList;
 
 public class Compra {
-    private Filme filme;
-    private Sessao sessao;
-    private Sala sala;
-    private Ingresso ingresso;
+
+    private Cliente cliente;
+
+    private ArrayList<Ingresso> ingressos;
+
     private ArrayList<Combo> combos;
+
     private Pagamento pagamento;
 
-    public void escolherFilme(Filme filme){
-        this.filme = filme;
+    public Compra(Cliente cliente) {// construtor
+        this.cliente = cliente;
+
+        ingressos = new ArrayList<>();
+
+        combos = new ArrayList<>();
     }
-    public void escolherSessao(Sessao sessao){
-        this.sessao = sessao;
+//------------------------------ MÉTODOS -----------------------
+    public void adicionarIngresso(Ingresso ingresso){
+        ingressos.add(ingresso);
+        System.out.println("Ingresso adicionado à compra.");
     }
 
-    public void adicionarCombo(Combo combo) {
+    public void adicionarCombo(Combo combo){
         combos.add(combo);
+        System.out.println("Combo adicionado à compra.");
     }
-    public void gerarIngresso(){
-        ingresso = new Ingresso(filme,sessao,sala);
+
+    public void removerIngresso(Ingresso ingresso) {
+        ingressos.remove(ingresso);
+        System.out.println("Ingresso removida da compra.");
     }
-    public void setPagamento(Pagamento pagamento) {
+
+    public void removerCombo(Combo combo){
+        combos.remove(combo);
+        System.out.println("Combo removido da compra.");
+    }
+
+    public void definirPagamento(Pagamento pagamento){
         this.pagamento = pagamento;
     }
 
-    public double calcularTotal() {
+    public double calcularValorTotal(){
 
-        double total = 0;
-
-        for (Ingresso ingresso : ingressos) {
-            total += ingresso.calcularPreco();
-        }
-
-        for (Combo combo : combos) {
-            total += combo.getPreco();
-        }
-
-        return total;
     }
 
-    public void finalizarCompra() {
+    public boolean finalizarCompra(){}
 
-        double total = calcularTotal();
+    public void exibirResumo(){}
 
-        pagamento.realizarPagamento(total);
+    public void mostrarIngressos(){}
 
-        System.out.println("Compra finalizada!");
-    }
-
-    public void exibirResumo() {
-
-        System.out.println("\n===== NOTA FISCAL =====");
-
-        System.out.println("Cliente: " + cliente.getNome());
-
-        System.out.println("\nIngressos:");
-
-        for (Ingresso ingresso : ingressos) {
-            System.out.println("R$ " + ingresso.calcularPreco());
-        }
-
-        System.out.println("\nCombos:");
-
-        for (Combo combo : combos) {
-            System.out.println(combo.getNome() + " - R$ " + combo.getPreco());
-        }
-
-        System.out.println("\nTOTAL: R$ " + calcularTotal());
-    }
+    public void mostrarCombos(){}
 }

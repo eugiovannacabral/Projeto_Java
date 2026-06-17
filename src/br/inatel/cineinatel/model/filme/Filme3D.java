@@ -1,15 +1,12 @@
 package br.inatel.cineinatel.model.filme;
 
 public class Filme3D extends Filme {
-
-    private boolean oculos3D;
-
-    public Filme3D(String titulo, int duracao, String classificacao) {
-        super(titulo, duracao, classificacao);
-        this.oculos3D = true;
+    public Filme3D(String titulo, int duracao, String classificacao, String genero, int anoLancamento) {
+        super(titulo, duracao, classificacao, genero,anoLancamento );
     }
 
-    public boolean isOculos3D() {
-        return oculos3D;
+    @Override
+    public String getTipoExibicao(){
+        return "3D";
     }
 }
