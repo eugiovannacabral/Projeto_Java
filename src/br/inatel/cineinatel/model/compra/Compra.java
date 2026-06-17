@@ -9,11 +9,8 @@ import java.util.ArrayList;
 public class Compra {
 
     private Cliente cliente;
-
     private ArrayList<Ingresso> ingressos;
-
     private ArrayList<Combo> combos;
-
     private Pagamento pagamento;
 
     public Compra(Cliente cliente) {// construtor

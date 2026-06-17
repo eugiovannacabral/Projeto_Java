@@ -8,14 +8,10 @@ public class Cliente extends Pessoa {
     private int codigoCliente;
     private ArrayList<Compra> compras;
 
-    public Cliente(String nome,
-                   String cpf,
-                   int codigoCliente) {
+    public Cliente(String nome, String cpf, int codigoCliente) {
 
         super(nome, cpf);
-
         this.codigoCliente = codigoCliente;
-
         compras = new ArrayList<>();
     }
 
@@ -41,7 +37,6 @@ public class Cliente extends Pessoa {
             System.out.println("Compra " + (i + 1));
 
             compras.get(i).exibirResumo();
-
             System.out.println();
         }
     }

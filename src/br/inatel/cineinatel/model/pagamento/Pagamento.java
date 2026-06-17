@@ -1,7 +1,8 @@
 package br.inatel.cineinatel.model.pagamento;
-//CLASSE JA ESTA OK!!!!!
+
 public abstract class Pagamento {
     protected double valor;//para armazenar o valor a ser pago
+
     public Pagamento(double valor){
         this.valor = valor;
     }

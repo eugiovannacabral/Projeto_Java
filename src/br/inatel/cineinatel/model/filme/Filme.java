@@ -1,5 +1,5 @@
 package br.inatel.cineinatel.model.filme;
-// AQUI NÃO TEM OQUE MEXER
+
 public abstract class Filme {
     protected String titulo;
     protected int duracao;
@@ -24,6 +24,7 @@ public abstract class Filme {
         System.out.println("Gênero: " + genero);
         System.out.println("Ano: " + anoLancamento);
     }
+
     public abstract String getTipoExibicao();
 
     public String getTitulo() {
