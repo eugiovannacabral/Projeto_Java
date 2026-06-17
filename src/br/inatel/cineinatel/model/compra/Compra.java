@@ -55,5 +55,36 @@ public class Compra {
 
     public void mostrarIngressos(){}
 
+<<<<<<< Updated upstream
     public void mostrarCombos(){}
+=======
+        if(ingressos.isEmpty()){
+            System.out.println("Nenhum ingresso adicionado");
+            return;
+        }
+
+        for(int i = 0; i < ingressos.size(); i++){
+            System.out.println("Ingresso " + (i+1));
+            ingressos.get(i).exibirIngresso();
+            System.out.println();
+        }
+    }
+
+    public void mostrarCombos() {
+        System.out.println("\n===== COMBOS =====");
+
+        if (combos.isEmpty()) {
+            System.out.println("Nenhum combo adicionado.");
+            return;
+        }
+
+        for (int i = 0; i < combos.size(); i++) {
+            System.out.println("Combo " + (i + 1));
+            System.out.println("Nome: " + combos.get(i).getNome());
+            System.out.println("Preço: R$ " + combos.get(i).calcularPreco());
+            System.out.println();
+        }
+    }
+
+
 }
