@@ -17,8 +17,8 @@ public class Main {
         Funcionario funcionario = new Funcionario("Giovanna Cabral Rangel de Mesquita","111.544.666-78","Caixa");
         cliente.exibirInformacoes();
         funcionario.exibirInformacoes();
-        Filme filme = new Filme3D("Minecraft", 120, "10 anos");
-
+        Filme filme = new Filme3D("Minecraft", 120, "10 anos", "Desenho",2004);
+        filme.exibirInformacoes();
         Sala sala = new SalaVIP(1,5);
         sala.mostrarAssentos();
         sala.
@@ -27,6 +27,6 @@ public class Main {
 
         Ingresso ingresso = new IngressoMeia(sessao,2,3);
         Pagamento pagamento = new Pix();
-        pagamento.realizarPagamento(ingresso.calcularPreco());
+        pagamento.realizarPagamento();*/
     }
 }

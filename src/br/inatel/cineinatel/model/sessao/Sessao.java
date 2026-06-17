@@ -6,7 +6,6 @@ public class Sessao {
     private Filme filme;
     private Sala sala;
     private String horario;
-    private double precoBase;
 
     public Sessao(Filme filme, Sala sala, String horario) {
         this.filme = filme;
