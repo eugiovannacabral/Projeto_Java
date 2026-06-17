@@ -1,5 +1,5 @@
 package br.inatel.cineinatel.model.comida;
-
+// FECHADO
 public abstract class Combo {
     protected String nome;
     protected int quantidadeLanches;
@@ -21,5 +21,14 @@ public abstract class Combo {
 
     public String getNome() {
         return nome;
+    }
+
+    public void exibirCombo() {
+        System.out.println("Combo: " + nome);
+        System.out.println("Lanches: " + quantidadeLanches);
+        System.out.println("Batatas: " + quantidadeBatatas);
+        System.out.println("Refrigerantes: " + quantidadeRefrigerantes);
+        System.out.println("Chocolates: " + quantidadeChocolates);
+        System.out.println("Preço: R$ " + calcularPreco());
     }
 }

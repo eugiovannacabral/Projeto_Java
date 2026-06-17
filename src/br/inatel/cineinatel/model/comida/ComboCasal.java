@@ -1,5 +1,5 @@
 package br.inatel.cineinatel.model.comida;
-
+//FECHADO
 public class ComboCasal extends Combo{
     public ComboCasal(){
         nome = "Casal";

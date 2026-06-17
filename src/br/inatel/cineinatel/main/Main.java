@@ -1,32 +1,31 @@
 package br.inatel.cineinatel.main;
+import br.inatel.cineinatel.model.comida.Combo;
+import br.inatel.cineinatel.model.compra.Compra;
 import br.inatel.cineinatel.model.filme.Filme;
+import br.inatel.cineinatel.model.filme.Filme2D;
 import br.inatel.cineinatel.model.filme.Filme3D;
 import br.inatel.cineinatel.model.ingresso.Ingresso;
+import br.inatel.cineinatel.model.ingresso.IngressoAposentado;
+import br.inatel.cineinatel.model.ingresso.IngressoInteira;
 import br.inatel.cineinatel.model.ingresso.IngressoMeia;
 import br.inatel.cineinatel.model.pagamento.Pagamento;
 import br.inatel.cineinatel.model.pagamento.Pix;
+import br.inatel.cineinatel.model.pagamento.CartaoCredito;
 import br.inatel.cineinatel.model.pessoa.Cliente;
 import br.inatel.cineinatel.model.pessoa.Funcionario;
 import br.inatel.cineinatel.model.sala.Sala;
 import br.inatel.cineinatel.model.sala.SalaVIP;
 import br.inatel.cineinatel.model.sessao.Sessao;
+import br.inatel.cineinatel.model.compra.Compra;
+
+import java.util.Scanner;
+import java.util.Locale;
 
 public class Main {
-    public static void main(String[] args){
-        Cliente cliente = new Cliente("Layla Victória Sousa Teles","000.222.444-78",21);
-        Funcionario funcionario = new Funcionario("Giovanna Cabral Rangel de Mesquita","111.544.666-78","Caixa");
-        cliente.exibirInformacoes();
-        funcionario.exibirInformacoes();
-        Filme filme = new Filme3D("Minecraft", 120, "10 anos", "Desenho",2004);
-        filme.exibirInformacoes();
-        Sala sala = new SalaVIP(1,5);
-        sala.mostrarAssentos();
-        sala.
+    public static void main(String[] args) {
+        Cliente cliente1 = new Cliente("Layla Victória Sousa Teles","000.021.664-03");
+        Filme filme1= new Filme2D("Sherek", 240, "livre", "aventura", 2026);
 
-        Sessao sessao = new Sessao(filme, sala, "20:00");
 
-        Ingresso ingresso = new IngressoMeia(sessao,2,3);
-        Pagamento pagamento = new Pix();
-        pagamento.realizarPagamento();*/
     }
 }

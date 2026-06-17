@@ -1,5 +1,5 @@
 package br.inatel.cineinatel.model.pessoa;
-
+// FECHADA
 public abstract class Pessoa {
     private String nome;
     private String cpf;

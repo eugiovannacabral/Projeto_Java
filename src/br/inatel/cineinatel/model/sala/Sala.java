@@ -1,5 +1,5 @@
 package br.inatel.cineinatel.model.sala;
-
+// NÃO MEXER MAIS!!!
 public class Sala {
     private int nSala;
     private boolean[][] assentos;
@@ -9,11 +9,14 @@ public class Sala {
         assentos = new boolean[15][15];// definindo o tamanho da sala
     }
 
-    public boolean comprarAssento(int linha, int coluna){
-        if(linha < 0 || linha >= assentos.length || coluna < 0 || coluna >= assentos[0].length){// validação para caso o usuario digite uma posição invalida
-            System.out.println("Posição inválida!");
+    public boolean verificarAssento(int linha, int coluna){
+        if(linha < 0 || linha >= assentos.length || coluna < 0 || coluna >= assentos[0].length){
             return false;
         }
+        return !assentos[linha][coluna];
+    }
+
+    public boolean reservarAssento(int linha, int coluna){
         if(!assentos[linha][coluna]){
             // false = livre e true = ocupado
             assentos[linha][coluna] = true;
@@ -25,7 +28,7 @@ public class Sala {
     }
 
     public void mostrarAssentos(){
-        System.out.println("\n===== SALAS =====");
+        System.out.println("\n===== ASSENTOS =====");
         for(int i = 0; i < assentos.length; i++){
             for(int j = 0; j < assentos[i].length; j++){
                 if(assentos[i][j])

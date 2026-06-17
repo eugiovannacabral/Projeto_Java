@@ -1,5 +1,5 @@
 package br.inatel.cineinatel.model.pagamento;
-// SE QUISERREM PODEM ADICIONAR MAIS FORMAS DE VALIDAÇÃO, POR SE O USUARIO NÃO TIVER LIMITE PARA PASSAR A COMPRA
+// ja esta ok
 public class CartaoCredito extends Pagamento {
     private String numeroCartao;
     private String titular;
@@ -11,9 +11,13 @@ public class CartaoCredito extends Pagamento {
 
     @Override
     public boolean realizarPagamento() {
+        if(this.numeroCartao == null || numeroCartao.length() < 16){
+            System.out.println("Número do cartão inválido!");
+            return false;
+        }
         System.out.println("\n===== CARTÃO =====");
         System.out.println("Titular: " + titular);
-        System.out.println("Valor: R$ " + valor);
+        System.out.println("Valor: R$ " + getValor());
 
         System.out.println("Pagamento aprovado!");
         return true;
