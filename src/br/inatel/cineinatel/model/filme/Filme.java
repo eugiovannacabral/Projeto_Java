@@ -1,5 +1,5 @@
 package br.inatel.cineinatel.model.filme;
-// AQUI NÃO TEM OQUE MEXER
+// NÃO MEXER MAIS!!!
 public abstract class Filme {
     protected String titulo;
     protected int duracao;
