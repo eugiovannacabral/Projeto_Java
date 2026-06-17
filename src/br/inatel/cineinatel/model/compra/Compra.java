@@ -16,6 +16,7 @@ import br.inatel.cineinatel.model.pagamento.Pix;
 import java.util.ArrayList;
 
 public class Compra {
+
     //-------------------------ATRIBUTOS---------------
     private Cliente cliente;
     private Sessao sessao;
@@ -183,4 +184,11 @@ public class Compra {
     }
     //-------------------------------------------------------------------------------
 
+    public void alterarSessao(Sessao sessao){
+        this.sessao = sessao;
+    }
+
+    public Sessao getSessao() {
+        return sessao;
+    }
 }
