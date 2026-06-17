@@ -23,9 +23,6 @@ import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        Cliente cliente1 = new Cliente("Layla Victória Sousa Teles","000.021.664-03");
-        Filme filme1= new Filme2D("Sherek", 240, "livre", "aventura", 2026);
-
 
     }
 }
