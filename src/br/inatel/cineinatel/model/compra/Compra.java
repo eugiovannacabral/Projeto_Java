@@ -4,6 +4,7 @@ import br.inatel.cineinatel.model.comida.ComboCasal;
 import br.inatel.cineinatel.model.comida.ComboFamilia;
 import br.inatel.cineinatel.model.comida.ComboIndividual;
 import br.inatel.cineinatel.model.ingresso.Ingresso;
+import br.inatel.cineinatel.model.pagamento.CartaoCredito;
 import br.inatel.cineinatel.model.pagamento.Pagamento;
 import br.inatel.cineinatel.model.pessoa.Cliente;
 import br.inatel.cineinatel.model.sessao.Sessao;
@@ -31,10 +32,6 @@ public class Compra {
     }
 //------------------------------ MÉTODOS -----------------------
     public boolean comprarIngresso(String tipoIngresso, int linha, int coluna) {
-        boolean reservado = sessao.getSala().reservarAssento(linha, coluna);
-        if (!reservado) {
-            return false;
-        }
         Ingresso ingresso = null;
 
         if (tipoIngresso.equalsIgnoreCase("inteira")) {// para comparar 2 strings
@@ -47,9 +44,15 @@ public class Compra {
             System.out.println("Tipo de ingresso inválido.");
             return false;
         }
+        // 2 - Validar assento
+        if (!sessao.getSala().verificarAssento(linha, coluna)) {
+            System.out.println("Assento inválido ou ocupado.");
+            return false;
+        }
+        // 3 - Reservar assento
+        sessao.getSala().reservarAssento(linha, coluna);
 
         ingressos.add(ingresso);
-
         System.out.println("Ingresso adicionado à compra.");
         return true;
     }
@@ -76,14 +79,22 @@ public class Compra {
         System.out.println("Combo adicionado à compra.");
     }
 //--------------------------------------------------------------------------------------------------
-    public void removerIngresso(Ingresso ingresso) {
-        ingressos.remove(ingresso);
-        System.out.println("Ingresso removido da compra.");
+    public void removerIngresso(int indice) {
+        if (indice >= 0 && indice < ingressos.size()) {
+            ingressos.remove(indice);
+            System.out.println("Ingresso removido da compra.");
+        } else {
+            System.out.println("Índice inválido.");
+        }
     }
 //----------------------------------------------------------------------------------------------------
-    public void removerCombo(Combo combo){
-        combos.remove(combo);
-        System.out.println("Combo removido da compra.");
+    public void removerCombo(int indice) {
+        if (indice >= 0 && indice < combos.size()) {
+            combos.remove(indice);
+            System.out.println("Combo removido da compra.");
+        } else {
+            System.out.println("Índice inválido.");
+        }
     }
 //------------------------------------------------------------------------------------------------------
     public double calcularValorTotal() {
@@ -105,7 +116,7 @@ public class Compra {
     }
 //--------------------------------------------------------------------------
     public void pagarCartaoCredito(String numero, String titular){
-
+        pagamento = new CartaoCredito(calcularValorTotal(),numero,titular);
     }
 //--------------------------------------------------------------------------------------------
     public boolean finalizarCompra() {
@@ -124,9 +135,7 @@ public class Compra {
         System.out.println("Pagamento recusado. Compra cancelada.");
         return false;
     }
-//-------------------------------------------------------------------------------
-    public void exibirResumo(){}
-
+//------------------------------------------------------------------------------
     public void mostrarIngressos(){
         System.out.println("\n===== INGRESSOS =====");
 
@@ -141,7 +150,7 @@ public class Compra {
             System.out.println();
         }
     }
-
+//----------------------------------------------------------------------------
     public void mostrarCombos() {
         System.out.println("\n===== COMBOS =====");
 
@@ -157,4 +166,21 @@ public class Compra {
             System.out.println();
         }
     }
+//-------------------------------------------------------------------------------
+    public void exibirResumo() {
+        System.out.println("\n===== RESUMO DA COMPRA =====");
+
+        System.out.println("Cliente: " + cliente.getNome());
+        System.out.println("CPF: " + cliente.getCpf());
+
+        System.out.println("\n===== SESSÃO =====");
+        sessao.exibirSessao();
+
+        mostrarIngressos();
+        mostrarCombos();
+
+        System.out.println("\nValor total: R$ " + calcularValorTotal());
+    }
+    //-------------------------------------------------------------------------------
+
 }

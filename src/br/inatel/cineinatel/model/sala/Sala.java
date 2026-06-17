@@ -20,7 +20,6 @@ public class Sala {
         if(!assentos[linha][coluna]){
             // false = livre e true = ocupado
             assentos[linha][coluna] = true;
-            System.out.println("Assento comprado com sucesso!");
             return true;
         }
         System.out.println("Esse assento já está ocupado!");
