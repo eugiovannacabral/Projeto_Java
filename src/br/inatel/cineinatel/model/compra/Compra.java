@@ -1,5 +1,8 @@
 package br.inatel.cineinatel.model.compra;
 import br.inatel.cineinatel.model.comida.Combo;
+import br.inatel.cineinatel.model.comida.ComboCasal;
+import br.inatel.cineinatel.model.comida.ComboFamilia;
+import br.inatel.cineinatel.model.comida.ComboIndividual;
 import br.inatel.cineinatel.model.ingresso.Ingresso;
 import br.inatel.cineinatel.model.pagamento.Pagamento;
 import br.inatel.cineinatel.model.pessoa.Cliente;
@@ -7,6 +10,7 @@ import br.inatel.cineinatel.model.sessao.Sessao;
 import br.inatel.cineinatel.model.ingresso.IngressoAposentado;
 import br.inatel.cineinatel.model.ingresso.IngressoInteira;
 import br.inatel.cineinatel.model.ingresso.IngressoMeia;
+import br.inatel.cineinatel.model.pagamento.Pix;
 
 import java.util.ArrayList;
 
@@ -49,23 +53,39 @@ public class Compra {
         System.out.println("Ingresso adicionado à compra.");
         return true;
     }
+//----------------------------------------------------------------------------------------------------
 
+    public void comprarCombo(String tipoCombo) {
+        Combo combo = null;
 
-    public void comprarCombo(Combo combo){
+        if (tipoCombo.equalsIgnoreCase("individual")) {
+            combo = new ComboIndividual();
+        }
+        else if (tipoCombo.equalsIgnoreCase("casal")) {
+            combo = new ComboCasal();
+        }
+        else if (tipoCombo.equalsIgnoreCase("familia")) {
+            combo = new ComboFamilia();
+        }
+        else {
+            System.out.println("Tipo de combo inválido!");
+            return;
+        }
+
         combos.add(combo);
         System.out.println("Combo adicionado à compra.");
     }
-
+//--------------------------------------------------------------------------------------------------
     public void removerIngresso(Ingresso ingresso) {
         ingressos.remove(ingresso);
         System.out.println("Ingresso removido da compra.");
     }
-
+//----------------------------------------------------------------------------------------------------
     public void removerCombo(Combo combo){
         combos.remove(combo);
         System.out.println("Combo removido da compra.");
     }
-
+//------------------------------------------------------------------------------------------------------
     public double calcularValorTotal() {
         double total = 0;
 
@@ -79,12 +99,15 @@ public class Compra {
 
         return total;
     }
-
-    public void definirPagamento(Pagamento pagamento){
-        this.pagamento = pagamento;
+//----------------------------------------------------------------------------------------
+    public void pagarPix(String chavePix) {
+        pagamento = new Pix(calcularValorTotal(),chavePix);
     }
+//--------------------------------------------------------------------------
+    public void pagarCartaoCredito(String numero, String titular){
 
-
+    }
+//--------------------------------------------------------------------------------------------
     public boolean finalizarCompra() {
         if (pagamento == null) {
             System.out.println("Nenhuma forma de pagamento definida!");
@@ -101,7 +124,7 @@ public class Compra {
         System.out.println("Pagamento recusado. Compra cancelada.");
         return false;
     }
-
+//-------------------------------------------------------------------------------
     public void exibirResumo(){}
 
     public void mostrarIngressos(){
