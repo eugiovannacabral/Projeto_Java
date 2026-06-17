@@ -19,11 +19,13 @@ public class Main {
         funcionario.exibirInformacoes();
         Filme filme = new Filme3D("Minecraft", 120, "10 anos");
 
-        Sala sala = new SalaVIP(1, 100);
+        Sala sala = new SalaVIP(1,5);
+        sala.mostrarAssentos();
+        sala.
 
         Sessao sessao = new Sessao(filme, sala, "20:00");
 
-        Ingresso ingresso = new IngressoMeia(sessao);
+        Ingresso ingresso = new IngressoMeia(sessao,2,3);
         Pagamento pagamento = new Pix();
         pagamento.realizarPagamento(ingresso.calcularPreco());
     }

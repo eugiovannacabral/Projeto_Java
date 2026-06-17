@@ -12,10 +12,10 @@ public abstract class Ingresso {
         this.linha = linha;
         this.coluna = coluna;
 
-        boolean reservado = sessao.getSala().reservarAssento(linha,coluna);
+        boolean reservado = sessao.getSala().comprarAssento(linha,coluna);
 
-        if(reservado == true){
-            System.out.println("Ingresso criado com sucesso!");
+        if(reservado){
+            System.out.println("Ingresso comprado com sucesso!");
         }
     }
 

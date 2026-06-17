@@ -1,34 +1,35 @@
 package br.inatel.cineinatel.model.compra;
-
 import br.inatel.cineinatel.model.comida.Combo;
+import br.inatel.cineinatel.model.filme.Filme;
 import br.inatel.cineinatel.model.ingresso.Ingresso;
 import br.inatel.cineinatel.model.pagamento.Pagamento;
 import br.inatel.cineinatel.model.pessoa.Cliente;
+import br.inatel.cineinatel.model.sala.Sala;
+import br.inatel.cineinatel.model.sessao.Sessao;
 
 import java.util.ArrayList;
 
 public class Compra {
-
-    private Cliente cliente;
-    private ArrayList<Ingresso> ingressos;
+    private Filme filme;
+    private Sessao sessao;
+    private Sala sala;
+    private Ingresso ingresso;
     private ArrayList<Combo> combos;
     private Pagamento pagamento;
 
-    public Compra(Cliente cliente) {
-
-        this.cliente = cliente;
-        this.ingressos = new ArrayList<>();
-        this.combos = new ArrayList<>();
+    public void escolherFilme(Filme filme){
+        this.filme = filme;
     }
-
-    public void adicionarIngresso(Ingresso ingresso) {
-        ingressos.add(ingresso);
+    public void escolherSessao(Sessao sessao){
+        this.sessao = sessao;
     }
 
     public void adicionarCombo(Combo combo) {
         combos.add(combo);
     }
-
+    public void gerarIngresso(){
+        ingresso = new Ingresso(filme,sessao,sala);
+    }
     public void setPagamento(Pagamento pagamento) {
         this.pagamento = pagamento;
     }
